@@ -525,5 +525,9 @@ module.exports = {
     "bow": "A bow can be crafted by placing three string in the rightmost column and then placing tree sticks in a less than sign pattern next to the string in a crafting table.",
     "lime carpet": "Any type of carpet can be crafted by placing two wool, of the same color, next to each other in a crafting window.",
     "flint": "Flint is randomly dropped while breaking gravel.",
-    "black stained glass pane": "Any type of stained glass pane can be crafted by placing the same color stained glass, horizontally, in the bottom two rows."
+    "black stained glass pane": "Any type of stained glass pane can be crafted by placing the same color stained glass, horizontally, in the bottom two rows.",
+    "eddies birthday": "Eddie was born on 13th of November 2007",
+    "emilys birthday": "Emily was born on 10th of March 2004",
+    "my password": "The password is 1 1 2 3 4 4 5 6 7",
+    "juggys blood type": "Juggy's blood type is O!"
 };
