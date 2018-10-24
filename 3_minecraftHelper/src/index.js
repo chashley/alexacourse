@@ -24,7 +24,7 @@
 var AlexaSkill = require('./AlexaSkill'),
     recipes = require('./recipes');
 
-var APP_ID = undefined; //OPTIONAL: replace with 'amzn1.echo-sdk-ams.app.[your-unique-value-here]';
+var APP_ID = "amzn1.ask.skill.437a7179-958c-4a48-8156-35aa049a308a"; //OPTIONAL: replace with 'amzn1.echo-sdk-ams.app.[your-unique-value-here]';
 
 /**
  * MinecraftHelper is a child of AlexaSkill.
@@ -41,7 +41,7 @@ HowTo.prototype = Object.create(AlexaSkill.prototype);
 HowTo.prototype.constructor = HowTo;
 
 HowTo.prototype.eventHandlers.onLaunch = function (launchRequest, session, response) {
-    var speechText = "Welcome to the How To Helper. You can ask a question like, what's the recipe for a chest? ... Now, what can I help you with.";
+    var speechText = "Welcome Chris to your secret skill.  You can ask me questions and I will give you the answer...";
     // If the user either does not reply to the welcome message or says something that is not
     // understood, they will be prompted again with this text.
     var repromptText = "For instructions on what you can say, please say help me.";
@@ -69,9 +69,9 @@ HowTo.prototype.intentHandlers = {
         } else {
             var speech;
             if (itemName) {
-                speech = "I'm sorry, I currently do not know the recipe for " + itemName + ". What else can I help with?";
+                speech = "I'm sorry, I currently do not know the answer for " + itemName + ". What else can I help with?";
             } else {
-                speech = "I'm sorry, I currently do not know that recipe. What else can I help with?";
+                speech = "I'm sorry, I currently do not know that answer. What else can I help with?";
             }
             speechOutput = {
                 speech: speech,
@@ -96,8 +96,8 @@ HowTo.prototype.intentHandlers = {
     },
 
     "AMAZON.HelpIntent": function (intent, session, response) {
-        var speechText = "You can ask questions such as, what's the recipe, or, you can say exit... Now, what can I help you with?";
-        var repromptText = "You can say things like, what's the recipe, or you can say exit... Now, what can I help you with?";
+        var speechText = "You can ask questions such as, what's the answer, or, you can say exit... Now, what can I help you with?";
+        var repromptText = "You can say things like, what's the answer, or you can say exit... Now, what can I help you with?";
         var speechOutput = {
             speech: speechText,
             type: AlexaSkill.speechOutputType.PLAIN_TEXT

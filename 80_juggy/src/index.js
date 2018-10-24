@@ -21,30 +21,15 @@
 /**
  * App ID for the skill
  */
-var APP_ID = "amzn1.ask.skill.d4952efc-0ae9-499a-bc6c-5006b43d77df"; //OPTIONAL: replace with "amzn1.echo-sdk-ams.app.[your-unique-value-here]";
+var APP_ID = UNDEFINED; //OPTIONAL: replace with "amzn1.echo-sdk-ams.app.[your-unique-value-here]";
 
 /**
  * Array containing space facts.
  */
-var FACTS = [
-    "A year on Mercury is just 88 days long.",
-    "Despite being farther from the Sun, Venus experiences higher temperatures than Mercury.",
-    "Venus rotates counter-clockwise, possibly because of a collision in the past with an asteroid.",
-    "On Mars, the Sun appears about half the size as it does on Earth.",
-    "Earth is the only planet not named after a god.",
-    "Jupiter has the shortest day of all the planets.",
-    "The Milky Way galaxy will collide with the Andromeda Galaxy in about 5 billion years.",
-    "The Sun contains 99.86% of the mass in the Solar System.",
-    "The Sun is an almost perfect sphere.",
-    "A total solar eclipse can happen once every 1 to 2 years. This makes them a rare event.",
-    "Saturn radiates two and a half times more energy into space than it receives from the sun.",
-    "The temperature inside the Sun can reach 15 million degrees Celsius.",
-    "The Moon is moving approximately 3.8 cm away from our planet every year.",
-    "The most recent solar eclipse was a few months ago.",
-    "The sun is responsible for heating the earth.",
-    "No astronaut will ever be able to land on the Sun.",
-    "Pretty sure that the moon is made out of cheese, but I have no substantial proof of that, of course.",
-    "Chris Hashley is totally awesome."
+var RESPONSES = [
+    "Chris Hashley is totally awesome.",
+    "Have a great day Juggy!!",
+    "Get after it Juggy!"
 ];
 
 /**
@@ -85,8 +70,8 @@ Fact.prototype.eventHandlers.onSessionEnded = function (sessionEndedRequest, ses
 };
 
 Fact.prototype.intentHandlers = {
-    "GetNewFactIntent": function (intent, session, response) {
-        handleNewFactRequest(response);
+    "GoodDayIntent": function (intent, session, response) {
+        handleGoodDayComment(response);
     },
 
     "AMAZON.HelpIntent": function (intent, session, response) {
@@ -107,14 +92,14 @@ Fact.prototype.intentHandlers = {
 /**
  * Gets a random new fact from the list and returns to the user.
  */
-function handleNewFactRequest(response) {
+function handleGoodDayComment(response) {
     // Get a random space fact from the space facts list
-    var factIndex = Math.floor(Math.random() * FACTS.length);
-    var randomFact = FACTS[factIndex];
+    var factIndex = Math.floor(Math.random() * RESPONSES.length);
+    var randomResponse = RESPONSES[factIndex];
 
     // Create speech output
-    var speechOutput = "Here's your fact: " + randomFact;
-    var cardTitle = "Your Fact";
+    var speechOutput = "Happy to do that: " + randomResponse;
+    var cardTitle = "Happy to do that";
     response.tellWithCard(speechOutput, cardTitle, speechOutput);
 }
 
@@ -124,4 +109,3 @@ exports.handler = function (event, context) {
     var fact = new Fact();
     fact.execute(event, context);
 };
-
